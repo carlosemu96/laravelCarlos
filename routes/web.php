@@ -14,5 +14,25 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('Welcome');
 });
+
+// Route::group(['prefix' => 'articles'], function(){
+    
+//     Route::get('view/{articles?}', function ($article = "vacio") {
+//         echo $article;
+//     });
+// });
+
+
+Route::group(['prefix' => 'articles'], function () {
+
+    Route::get('view/{id}', [
+        'uses' => 'TestController@view',
+        'as'   => 'articlesView'
+    ]);
+});
+
+
+
+    
